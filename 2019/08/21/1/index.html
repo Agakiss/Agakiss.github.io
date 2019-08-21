@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="generator" content="Hexo 3.9.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/Agakiss.github.io/images/apple-touch-icon-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/Agakiss.github.io/images/favicon32.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/Agakiss.github.io/images/favicon16.png?v=7.3.0">
+  <link rel="mask-icon" href="/Agakiss.github.io/images/logo.svg?v=7.3.0" color="#222">
+
+<link rel="stylesheet" href="/Agakiss.github.io/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/Agakiss.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/Agakiss.github.io/',
+    scheme: 'Gemini',
+    version: '7.3.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    save_scroll: false,
+    copycode: {"enable":true,"show_result":true,"style":null},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+  <meta name="description" content="这里是Agakiss的数论学习笔记 数论函数定义域为$N^{*}$，值域是一个数集的函数 以下数论函数皆用粗体英文字母($\mathbf f、\mathbf g、\mathbf t$)或希腊字母($\mu、\varphi$)表示 基本数论函数1.欧拉函数：令$k$为$x$的质因数的个数，则$x=\prod^{k}{i=1}pi^{ci}$$$\varphi(x)=x\ast\prod^{k}{i=">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数论学习笔记">
+<meta property="og:url" content="https://Agakiss.github.io/Agakiss.github.io/2019/08/21/1/index.html">
+<meta property="og:site_name" content="Agakiss的博客">
+<meta property="og:description" content="这里是Agakiss的数论学习笔记 数论函数定义域为$N^{*}$，值域是一个数集的函数 以下数论函数皆用粗体英文字母($\mathbf f、\mathbf g、\mathbf t$)或希腊字母($\mu、\varphi$)表示 基本数论函数1.欧拉函数：令$k$为$x$的质因数的个数，则$x=\prod^{k}{i=1}pi^{ci}$$$\varphi(x)=x\ast\prod^{k}{i=">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-21T09:01:58.253Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数论学习笔记">
+<meta name="twitter:description" content="这里是Agakiss的数论学习笔记 数论函数定义域为$N^{*}$，值域是一个数集的函数 以下数论函数皆用粗体英文字母($\mathbf f、\mathbf g、\mathbf t$)或希腊字母($\mu、\varphi$)表示 基本数论函数1.欧拉函数：令$k$为$x$的质因数的个数，则$x=\prod^{k}{i=1}pi^{ci}$$$\varphi(x)=x\ast\prod^{k}{i=">
+  <link rel="canonical" href="https://Agakiss.github.io/Agakiss.github.io/2019/08/21/1/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>数论学习笔记 | Agakiss的博客</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  <div class="container sidebar-position-left">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+
+    <div class="custom-logo-site-title">
+      <a href="/Agakiss.github.io/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Agakiss的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Agakiss Want To Be Cuter！</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/Agakiss.github.io/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/Agakiss.github.io/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/Agakiss.github.io/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/Agakiss.github.io/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+  </div>
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content page-post-detail">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Agakiss.github.io/Agakiss.github.io/Agakiss.github.io/2019/08/21/1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Agakiss">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/Agakiss.github.io/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Agakiss的博客">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">数论学习笔记
+
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-21 16:45:01 / 修改时间：17:01:58" itemprop="dateCreated datePublished" datetime="2019-08-21T16:45:01+08:00">2019-08-21</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+            <span class="post-meta-item" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>这里是Agakiss的数论学习笔记</p>
+<h4 id="数论函数"><a href="#数论函数" class="headerlink" title="数论函数"></a>数论函数</h4><p>定义域为$N^{*}$，值域是一个数集的函数</p>
+<p>以下数论函数皆用粗体英文字母($\mathbf f、\mathbf g、\mathbf t$)或希腊字母($\mu、\varphi$)表示</p>
+<h4 id="基本数论函数"><a href="#基本数论函数" class="headerlink" title="基本数论函数"></a>基本数论函数</h4><h5 id="1-欧拉函数："><a href="#1-欧拉函数：" class="headerlink" title="1.欧拉函数："></a>1.欧拉函数：</h5><p>令$k$为$x$的质因数的个数，则$x=\prod^{k}<em>{i=1}pi^{ci}$<br>$$<br>\varphi(x)=x\ast\prod^{k}</em>{i=1}(1-\frac{1}{p_i})<br>$$</p>
+<h5 id="2-幺元函数："><a href="#2-幺元函数：" class="headerlink" title="2.幺元函数："></a>2.幺元函数：</h5><p>$$<br>\epsilon(x)=[x=1]<br>$$</p>
+<h5 id="3-常函数1-one-："><a href="#3-常函数1-one-：" class="headerlink" title="3.常函数1(one)："></a>3.常函数1(one)：</h5><p>$$<br>\mathbf 1(x)=1<br>$$</p>
+<p>$$<br>\mathbf{one}(x)=1<br>$$</p>
+<h5 id="4-标号函数："><a href="#4-标号函数：" class="headerlink" title="4.标号函数："></a>4.标号函数：</h5><p>$$<br>\mathbf{id}(x)=x<br>$$</p>
+<h5 id="5-除数函数："><a href="#5-除数函数：" class="headerlink" title="5.除数函数："></a>5.除数函数：</h5><p>$$<br>\sigma_k(x)=\sum_{d|x}d^{k}<br>$$</p>
+<p>$$<br>\sigma(x,k)=\sum_{d|x}d^{k}<br>$$</p>
+<p>当k=0时，该函数表示x的正因子个数</p>
+<p>当k=1时，该函数表示x的正因子之和</p>
+<h4 id="运算法则："><a href="#运算法则：" class="headerlink" title="运算法则："></a>运算法则：</h4><h5 id="函数相加："><a href="#函数相加：" class="headerlink" title="函数相加："></a>函数相加：</h5><p>$$<br>(\mathbf f+\mathbf g)(n)=\mathbf f(n)+\mathbf g(n)<br>$$</p>
+<h5 id="数乘："><a href="#数乘：" class="headerlink" title="数乘："></a>数乘：</h5><p>$$<br>(x\mathbf f)(n)=x\cdot\mathbf f(n)<br>$$</p>
+<h4 id="狄利克雷卷积"><a href="#狄利克雷卷积" class="headerlink" title="狄利克雷卷积"></a>狄利克雷卷积</h4><p>$$<br>\mathbf t=\mathbf f\ast\mathbf g<br>$$</p>
+<p>$$<br>\mathbf t(n)=\sum_{i|n}\mathbf f(i)\mathbf g(\frac{n}{i})<br>$$</p>
+<p>$$<br>\mathbf t(n)=\sum_{ij=n}\mathbf f(i)\mathbf g(j)<br>$$</p>
+<p>狄利克雷卷积的性质：</p>
+<h5 id="1-交换律："><a href="#1-交换律：" class="headerlink" title="1.交换律："></a>1.交换律：</h5><p>$$<br>\mathbf f\ast\mathbf g=\mathbf g\ast\mathbf f<br>$$</p>
+<h5 id="2-结合律："><a href="#2-结合律：" class="headerlink" title="2.结合律："></a>2.结合律：</h5><p>$$<br>(\mathbf f\ast\mathbf g)\ast\mathbf h=\mathbf f\ast(\mathbf g\ast\mathbf h)<br>$$</p>
+<h5 id="3-分配律："><a href="#3-分配律：" class="headerlink" title="3.分配律："></a>3.分配律：</h5><p>$$<br>(\mathbf f+\mathbf g)\ast\mathbf h=\mathbf f\ast\mathbf h+\mathbf g\ast\mathbf h<br>$$</p>
+<h5 id="4-与数的结合律："><a href="#4-与数的结合律：" class="headerlink" title="4.与数的结合律："></a>4.与数的结合律：</h5><p>$$<br>(x\mathbf f)\ast\mathbf g=x(\mathbf f\ast\mathbf g)<br>$$</p>
+<h5 id="5-单位元："><a href="#5-单位元：" class="headerlink" title="5.单位元："></a>5.单位元：</h5><p>$$<br>\epsilon\ast\mathbf f=\mathbf f<br>$$</p>
+<h5 id="6-逆元："><a href="#6-逆元：" class="headerlink" title="6.逆元："></a>6.逆元：</h5><p>对于每个$\mathbf f(1)\neq0$的函数，都存在一个函数$\mathbf g$使得$\mathbf f\ast\mathbf g=\epsilon$</p>
+<p>定义：<br>$$<br>\mathbf g(n)=\frac{1}{\mathbf f(1)}\left([n=1]-\sum_{i|n,i\neq1}\mathbf f(i)\mathbf g(\frac{n}{i})\right)<br>$$</p>
+<h4 id="积性函数："><a href="#积性函数：" class="headerlink" title="积性函数："></a>积性函数：</h4><h5 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h5><p>如果一个数论函数$\mathbf f$满足：当$n\perp m$时有<br>$$<br>f(nm)=f(n)f(m)<br>$$</p>
+<h5 id="常见的积性函数："><a href="#常见的积性函数：" class="headerlink" title="常见的积性函数："></a>常见的积性函数：</h5><p>$$<br>\epsilon(n)=[n=1].<br>$$</p>
+<p>$$<br>\mathbf{id}(n)=n.<br>$$</p>
+<p>$$<br>\mathbf{id}^k(n)=n^k.<br>$$</p>
+<p>$$<br>\mathbf1(n)=\mathbf{id}^0=1.<br>$$</p>
+<p>$$<br>\varphi(x)=x\ast\prod^{k}_{i=1}(1-\frac{1}{p_n})<br>$$</p>
+<h5 id="两个重要结论："><a href="#两个重要结论：" class="headerlink" title="两个重要结论："></a>两个重要结论：</h5><p>$$<br>两个积性函数的狄利克雷卷积是积性函数<br>$$</p>
+<p>$$<br>积性函数的逆是积性函数<br>$$</p>
+<h5 id="小技巧："><a href="#小技巧：" class="headerlink" title="小技巧："></a>小技巧：</h5><p>线筛积性函数不多做讲解，只讲两个有用的推论：<br>$$<br>\sigma_0(p^k)=k+1<br>$$</p>
+<p>$$<br>\varphi(p^k)=p^{k-1}(p-1)<br>$$</p>
+<h5 id="1个推论："><a href="#1个推论：" class="headerlink" title="1个推论："></a>1个推论：</h5><p>因为$\varphi、\mathbf 1$都是积性函数，所以显然$(\varphi\ast\mathbf 1)$也是积性函数，所以我们只用考虑$p^k$时的取值，于是推导得知：<br>$$<br>(\varphi\ast\mathbf 1)(p^k)=p^k<br>$$<br>显然我们可以得到：<br>$$<br>\mathbf{id}=\varphi\ast\mathbf 1<br>$$</p>
+<h4 id="莫比乌斯反演："><a href="#莫比乌斯反演：" class="headerlink" title="莫比乌斯反演："></a>莫比乌斯反演：</h4><h5 id="莫比乌斯函数的定义："><a href="#莫比乌斯函数的定义：" class="headerlink" title="莫比乌斯函数的定义："></a>莫比乌斯函数的定义：</h5><p>$$<br>\mathbf 1的逆是\mu<br>$$</p>
+<h5 id="求莫比乌斯函数："><a href="#求莫比乌斯函数：" class="headerlink" title="求莫比乌斯函数："></a>求莫比乌斯函数：</h5><p>再$p^k$的时候：<br>$$<br>\mu(p^k)=<br>\begin{cases}<br>1&amp;k=0 \<br>-1&amp;k=0 \<br>0=&amp;k&gt;1<br>\end{cases}<br>$$<br>推广到$n$：<br>$$<br>\mu(n)=<br>\begin{cases}<br>(-1)^t&amp;n=\prod^{t}<em>{i=1}{p_t}\<br>0&amp;n\neq\prod^{t}</em>{i=1}{p_t}<br>\end{cases}<br>$$</p>
+<h5 id="莫比乌斯反演：-1"><a href="#莫比乌斯反演：-1" class="headerlink" title="莫比乌斯反演："></a>莫比乌斯反演：</h5><p>根据定义，如果：<br>$$<br>\mathbf g=\mathbf f\ast\mathbf 1\Longleftrightarrow\mathbf f=\mathbf f\ast\mathbf1\ast\mu=\mathbf g\ast\mu<br>$$<br>将狄利克雷卷积展开，得到：<br>$$<br>\mathbf g(n)=\sum_{d|n}f(d)\Longleftrightarrow\mathbf f(n)=\sum_{d|n}\mu(\frac{n}{d})g(d)<br>$$</p>
+<h5 id="另一种证明："><a href="#另一种证明：" class="headerlink" title="另一种证明："></a>另一种证明：</h5><p>引理：<br>$$<br>\mathbf{id}^k的逆是\mathbf t(n)=\mu(n)n^k<br>$$<br>设：<br>$$<br>\mathbf g(n)=\sum_{d|n}(\frac{n}{d})^k\mathbf f(d)<br>$$<br>换个方式表示一下：<br>$$<br>\mathbf g(n)=\sum_{d|n}\mathbf{id}^k(\frac{n}{d})\mathbf f(d)<br>$$<br>反演一下：<br>$$<br>\mathbf f(n)=\sum_{d|n}\mu(\frac{n}{d})(\frac{n}{d})^k\mathbf g(d)<br>$$<br>举个栗子：$\varphi=\mu\ast\mathbf{id}$，我们就可以得到：<br>$$<br>\varphi(n)=\sum_{d|n}\mu(\frac{n}{d})d<br>$$</p>
+<h4 id="数论分块："><a href="#数论分块：" class="headerlink" title="数论分块："></a>数论分块：</h4><h5 id="目标："><a href="#目标：" class="headerlink" title="目标："></a>目标：</h5><p>在已知所有$\sum^{r}<em>{i=l}f(i)$的情况下，用$O(\sqrt{n})$的复杂度下，求出：<br>$$<br>\sum^{n}</em>{i=1}f(i)\lfloor\frac{n}{i}\rfloor<br>$$</p>
+<h5 id="实现："><a href="#实现：" class="headerlink" title="实现："></a>实现：</h5><p>引理：<br>$$<br>\lfloor\frac{n}{i}\rfloor的取值只有\sqrt{n}种<br>$$<br>然后，一个结论：<br>$$<br>如果\lfloor\frac{n}{i}\rfloor是一种取值，那么使\lfloor\frac{n}{i}\rfloor=\lfloor\frac{n}{j}\rfloor的j的最大取值为\lfloor\frac{n}{\lfloor\frac{n}{i}\rfloor}\rfloor<br>$$<br>所以附一下代码（其中$Sum$表示$\sum^{r}_{i=l}f(i)$）：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">register</span> <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i = j + <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">int</span> j = n / (n / i);</span><br><span class="line">    ans += (n / i) * Sum(i, j);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="扩展："><a href="#扩展：" class="headerlink" title="扩展："></a>扩展：</h5><p>如果在已知所有$\sum^{r}<em>{i=l}f(i)$的情况下，用$O(\sqrt{n})$的复杂度下，求的是：<br>$$<br>\sum^{min(n,m)}</em>{i=1}f(i)\lfloor\frac{n}{i}\rfloor\lfloor\frac{m}{i}\rfloor<br>$$<br>我们其实只需要稍微改一下，</p>
+<p>令每次$j=min(\lfloor\frac{n}{\lfloor\frac{n}{i}\rfloor}\rfloor,\lfloor\frac{m}{\lfloor\frac{m}{j}\rfloor}\rfloor)$即可，</p>
+<p>再附一下代码（其中$Sum$表示$\sum^{r}_{i=l}f(i)$）：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">register</span> <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= min(n, m); i = j + <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">int</span> j = min(n / (n / i), m / (m / i));</span><br><span class="line">    ans += (n / i) * (m / i) * Sum(i, j);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="数论函数的关系（总结）："><a href="#数论函数的关系（总结）：" class="headerlink" title="数论函数的关系（总结）："></a>数论函数的关系（总结）：</h4><p>$$<br>\varphi=\mu\ast\mathbf{id}<br>$$</p>
+<p>$$<br>\mathbf{id}=\varphi\ast\mathbf1<br>$$</p>
+<p>$$<br>\epsilon=\mu\ast\mathbf1<br>$$</p>
+<h4 id="杜教筛："><a href="#杜教筛：" class="headerlink" title="杜教筛："></a>杜教筛：</h4><h5 id="思路1-0："><a href="#思路1-0：" class="headerlink" title="思路1.0："></a>思路1.0：</h5><p>如果给定函数$\mathbf f,\mathbf g$，令$\mathbf S(n)=\sum^n_{i=1}\mathbf f(i))$，则有：<br>$$<br>\sum^{n}<em>{i=1}(\mathbf f\ast\mathbf g)(i)=\sum^{n}</em>{i=1}{\sum_{xy=i}{\mathbf f(x)\mathbf g(y)}}=\sum^{n}<em>{y=1}\mathbf g(y)\sum</em>{xy\leq n}\mathbf f(x)=\sum^{n}<em>{y=1}\mathbf g(y)\mathbf S(\lfloor\frac{n}{y}\rfloor)<br>$$<br>将第一个和最后一个移项，得：<br>$$<br>\mathbf g(1)\mathbf S(n)=\sum^{n}</em>{i=1}(\mathbf f\ast\mathbf g)(i)-\sum^{n}_{y=2}\mathbf g(y)\ast\mathbf S(\lfloor\frac{n}{y}\rfloor)<br>$$<br>看到后半个式子感觉很能数论分块，于是我们有了一个很伪的求$\mathbf S$的方法，</p>
+<p>假设$(\mathbf f\ast\mathbf g)(i)$的前缀和与$\mathbf g(i)$的区间和都可以非常快（比如$O(1)$）计算，</p>
+<p>那么，我们得到了如下<del>伪</del>代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">S</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">register</span> <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">    	ans += (f * g)(i);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">register</span> <span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; i = j + <span class="number">1</span>) &#123;</span><br><span class="line">        j = n / (n / i);</span><br><span class="line">        ans -= Sg(i, j) * S(n / i);</span><br><span class="line">    &#125;</span><br><span class="line">    ans /= g(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//感性理解一下</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="思路2-0："><a href="#思路2-0：" class="headerlink" title="思路2.0："></a>思路2.0：</h5><p>现在，我们来继续考虑如何更好的优化它，</p>
+<p>引理：<br>$$<br>对于任意正整数x,y,z,有\lfloor\frac{\lfloor\frac{z}{x}\rfloor}{y}\rfloor=\lfloor\frac{z}{xy}\rfloor<br>$$<br>于是，我们有了新的优化方法，</p>
+<p>显然，当我们在某一次计算$\mathbf S(N)$时，必然某一次会计算$\lfloor\frac{N}{x}\rfloor$，那么必然再某一次会计算$\lfloor\frac{\lfloor\frac{N}{x}\rfloor}{y}\rfloor$,那么$\lfloor\frac{N}{xy}\rfloor$,</p>
+<p>是不是发现很神奇！</p>
+<p>我们如果用记忆化存下$\mathbf S(\lfloor\frac{N}{xy}\rfloor)$的值，</p>
+<p>通过数论分块的知识我们可以知道，$\lfloor\frac{N}{i}\rfloor$只有$\sqrt{N}$种取值，</p>
+<p>所以求一次$\mathbf S(N)$的，只有$\sqrt{N}$次递归调用，</p>
+<h3 id="烂尾待更"><a href="#烂尾待更" class="headerlink" title="烂尾待更"></a>烂尾待更</h3><h6 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h6><h6 id="1-铃悬的数学小讲堂——狄利克雷卷积与莫比乌斯反演"><a href="#1-铃悬的数学小讲堂——狄利克雷卷积与莫比乌斯反演" class="headerlink" title="[1].铃悬的数学小讲堂——狄利克雷卷积与莫比乌斯反演"></a>[1].铃悬的数学小讲堂——狄利克雷卷积与莫比乌斯反演</h6><h6 id="2-扶苏-数论进阶-常见数论函数"><a href="#2-扶苏-数论进阶-常见数论函数" class="headerlink" title="[2].-扶苏-数论进阶-常见数论函数"></a>[2].-扶苏-数论进阶-常见数论函数</h6><h6 id="3-铃悬的数学小讲堂——杜教筛"><a href="#3-铃悬的数学小讲堂——杜教筛" class="headerlink" title="[3].铃悬的数学小讲堂——杜教筛"></a>[3].铃悬的数学小讲堂——杜教筛</h6>
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/Agakiss.github.io/2019/08/10/hello-world/" rel="next" title="Hello World">
+                  <i class="fa fa-chevron-left"></i> Hello World
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+    
+    <div class="comments" id="gitalk-container"></div>
+  
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/Agakiss.github.io/images/avatar.jpg"
+      alt="Agakiss">
+  <p class="site-author-name" itemprop="name">Agakiss</p>
+  <div class="site-description motion-element" itemprop="description"></div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/Agakiss.github.io/archives/">
+        
+          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/Agakiss" title="GitHub &rarr; https://github.com/Agakiss" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://www.luogu.org/space/show?uid=31069" title="洛谷 &rarr; https://www.luogu.org/space/show?uid=31069" rel="noopener" target="_blank"><i class="fa fa-fw fa-code"></i>洛谷</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://www.codeforces.com/profile/Agakiss" title="Codeforces &rarr; https://www.codeforces.com/profile/Agakiss" rel="noopener" target="_blank"><i class="fa fa-fw fa-code"></i>Codeforces</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://space.bilibili.com/332062686" title="b站 &rarr; https://space.bilibili.com/332062686" rel="noopener" target="_blank"><i class="fa fa-fw fa-tv"></i>b站</a>
+      </span>
+    
+  </div>
+
+
+  <div class="links-of-blogroll motion-element links-of-blogroll-block">
+    <div class="links-of-blogroll-title">
+      <i class="fa  fa-fw fa-link"></i>
+      友链
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.csdn.net/ModestCoder_" title="https://blog.csdn.net/ModestCoder_" rel="noopener" target="_blank">ModestCoder_</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://www.luogu.org/blog/Radioactive/" title="https://www.luogu.org/blog/Radioactive/" rel="noopener" target="_blank">Holy_push</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.csdn.net/Mega_Aspirin" title="https://blog.csdn.net/Mega_Aspirin" rel="noopener" target="_blank">KajKeusaka</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://me.csdn.net/jokingcoder" title="https://me.csdn.net/jokingcoder" rel="noopener" target="_blank">Fxkkks</a>
+        </li>
+      
+    </ul>
+  </div>
+
+        </div>
+      </div>
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#数论函数"><span class="nav-number">1.</span> <span class="nav-text">数论函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基本数论函数"><span class="nav-number">2.</span> <span class="nav-text">基本数论函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-欧拉函数："><span class="nav-number">2.1.</span> <span class="nav-text">1.欧拉函数：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-幺元函数："><span class="nav-number">2.2.</span> <span class="nav-text">2.幺元函数：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-常函数1-one-："><span class="nav-number">2.3.</span> <span class="nav-text">3.常函数1(one)：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-标号函数："><span class="nav-number">2.4.</span> <span class="nav-text">4.标号函数：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-除数函数："><span class="nav-number">2.5.</span> <span class="nav-text">5.除数函数：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运算法则："><span class="nav-number">3.</span> <span class="nav-text">运算法则：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#函数相加："><span class="nav-number">3.1.</span> <span class="nav-text">函数相加：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#数乘："><span class="nav-number">3.2.</span> <span class="nav-text">数乘：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#狄利克雷卷积"><span class="nav-number">4.</span> <span class="nav-text">狄利克雷卷积</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-交换律："><span class="nav-number">4.1.</span> <span class="nav-text">1.交换律：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-结合律："><span class="nav-number">4.2.</span> <span class="nav-text">2.结合律：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-分配律："><span class="nav-number">4.3.</span> <span class="nav-text">3.分配律：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-与数的结合律："><span class="nav-number">4.4.</span> <span class="nav-text">4.与数的结合律：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-单位元："><span class="nav-number">4.5.</span> <span class="nav-text">5.单位元：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-逆元："><span class="nav-number">4.6.</span> <span class="nav-text">6.逆元：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#积性函数："><span class="nav-number">5.</span> <span class="nav-text">积性函数：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#定义："><span class="nav-number">5.1.</span> <span class="nav-text">定义：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#常见的积性函数："><span class="nav-number">5.2.</span> <span class="nav-text">常见的积性函数：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#两个重要结论："><span class="nav-number">5.3.</span> <span class="nav-text">两个重要结论：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#小技巧："><span class="nav-number">5.4.</span> <span class="nav-text">小技巧：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1个推论："><span class="nav-number">5.5.</span> <span class="nav-text">1个推论：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#莫比乌斯反演："><span class="nav-number">6.</span> <span class="nav-text">莫比乌斯反演：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#莫比乌斯函数的定义："><span class="nav-number">6.1.</span> <span class="nav-text">莫比乌斯函数的定义：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#求莫比乌斯函数："><span class="nav-number">6.2.</span> <span class="nav-text">求莫比乌斯函数：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#莫比乌斯反演：-1"><span class="nav-number">6.3.</span> <span class="nav-text">莫比乌斯反演：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#另一种证明："><span class="nav-number">6.4.</span> <span class="nav-text">另一种证明：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数论分块："><span class="nav-number">7.</span> <span class="nav-text">数论分块：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#目标："><span class="nav-number">7.1.</span> <span class="nav-text">目标：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#实现："><span class="nav-number">7.2.</span> <span class="nav-text">实现：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#扩展："><span class="nav-number">7.3.</span> <span class="nav-text">扩展：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数论函数的关系（总结）："><span class="nav-number">8.</span> <span class="nav-text">数论函数的关系（总结）：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#杜教筛："><span class="nav-number">9.</span> <span class="nav-text">杜教筛：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#思路1-0："><span class="nav-number">9.1.</span> <span class="nav-text">思路1.0：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#思路2-0："><span class="nav-number">9.2.</span> <span class="nav-text">思路2.0：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#烂尾待更"><span class="nav-number"></span> <span class="nav-text">烂尾待更</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#参考："><span class="nav-number">0.0.1.</span> <span class="nav-text">参考：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#1-铃悬的数学小讲堂——狄利克雷卷积与莫比乌斯反演"><span class="nav-number">0.0.2.</span> <span class="nav-text">[1].铃悬的数学小讲堂——狄利克雷卷积与莫比乌斯反演</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-扶苏-数论进阶-常见数论函数"><span class="nav-number">0.0.3.</span> <span class="nav-text">[2].-扶苏-数论进阶-常见数论函数</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-铃悬的数学小讲堂——杜教筛"><span class="nav-number">0.0.4.</span> <span class="nav-text">[3].铃悬的数学小讲堂——杜教筛</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Agakiss</span>
+</div>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.3.0</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+
+    
+
+  </div>
+
+  
+  <script src="/Agakiss.github.io/lib/jquery/index.js?v=3.4.1"></script>
+  <script src="/Agakiss.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/Agakiss.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+<script src="/Agakiss.github.io/js/utils.js?v=7.3.0"></script>
+  <script src="/Agakiss.github.io/js/motion.js?v=7.3.0"></script>
+
+
+  <script src="/Agakiss.github.io/js/affix.js?v=7.3.0"></script>
+  <script src="/Agakiss.github.io/js/schemes/pisces.js?v=7.3.0"></script>
+
+
+
+<script src="/Agakiss.github.io/js/next-boot.js?v=7.3.0"></script>
+
+
+
+
+  
+
+
+  <script src="/Agakiss.github.io/lib/bookmark/bookmark.min.js?v=1.0"></script>
+  <script>
+  if (CONFIG.page.isPost) {
+    bookmark.scrollToMark('auto', "#更多");
+  } else {
+    bookmark.loadBookmark();
+  }
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="/Agakiss.github.io/js/local-search.js?v=7.3.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', function() {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
+  
+
+  
+
+  
+
+
+  
+  <script src="/Agakiss.github.io/js/scrollspy.js?v=7.3.0"></script>
+<script src="/Agakiss.github.io/js/post-details.js?v=7.3.0"></script>
+
+
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', function() {
+    var gitalk = new Gitalk({
+      clientID: '896c2510dc125dab24df',
+      clientSecret: '6157e0435cd8c13fb4931e9bd773925ac91b6f89',
+      repo: 'Agakiss.github.io',
+      owner: 'Agakiss',
+      admin: [''],
+      id: '254edeb94c1913f66b5c16bb8fe21d90',
+        language: window.navigator.language || window.navigator.userLanguage,
+      
+      distractionFreeMode: 'true'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
+
+</body>
+</html>
